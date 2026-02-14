@@ -5,6 +5,16 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 
+/*********************** RUTAS PARA LAS SUSCRIPCIONES ***********************/
+
+// Ruta para guardar la suscripción push
+Route::post('/push/subscribe', [App\Http\Controllers\PushSubscriptionController::class, 'store']);
+
+// Ruta para enviar notificaciones push
+Route::post('/push/send', [App\Http\Controllers\PushNotificationController::class, 'send']);
+
+/*********************** RUTAS PARA LAS SUSCRIPCIONES ***********************/
+
 // Endpoint de login para API usando Sanctum
 Route::post('/login', function (Illuminate\Http\Request $request) {
     $request->validate([
