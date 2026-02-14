@@ -2,6 +2,9 @@
 
 ## Implementación
 
+## Librerias
+  - minishlink/web-push ^10.0
+
 1. **Migración de la tabla de suscripciones push**
    - Ejecuta las migraciones:
      ```bash
