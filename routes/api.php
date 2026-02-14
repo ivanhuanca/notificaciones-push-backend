@@ -24,7 +24,7 @@ Route::post('/login', function (Illuminate\Http\Request $request) {
 
     $user = User::where('email', $request->email)->first();
     if (!$user || !Hash::check($request->password, $user->password)) {
-        return response()->json(['message' => 'Credenciales inválidas'], 401);
+        return response()->json(['message' => 'Credenciales inválidas', 'success' => false], 401);
     }
 
     // Generar token de acceso personal con Sanctum
@@ -33,5 +33,6 @@ Route::post('/login', function (Illuminate\Http\Request $request) {
     return response()->json([
         'token' => $token,
         'user' => $user,
+        'success' => true,
     ]);
 });
