@@ -9,15 +9,15 @@ use Minishlink\WebPush\Subscription;
 
 class PushNotificationController extends Controller
 {
-    // Envía una notificación a todas las suscripciones guardadas
-    public function send(Request $request)
+    // Envía una notificación al usuario especificado
+    public function send(Request $request, $user_id)
     {
         $request->validate([
             'title' => 'required|string',
             'body' => 'required|string',
         ]);
 
-        $subscriptions = DB::table('push_subscriptions')->get();
+        $subscriptions = DB::table('push_subscriptions')->where('user_id', $user_id)->get();
 
         $auth = [
             'VAPID' => [
