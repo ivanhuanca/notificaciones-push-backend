@@ -11,7 +11,7 @@ use App\Models\User;
 Route::post('/push/subscribe', [App\Http\Controllers\PushSubscriptionController::class, 'store']);
 
 // Ruta para enviar notificaciones push
-Route::post('/push/send', [App\Http\Controllers\PushNotificationController::class, 'send']);
+Route::post('/push/send/{user_id}', [App\Http\Controllers\PushNotificationController::class, 'send']);
 
 /*********************** RUTAS PARA LAS SUSCRIPCIONES ***********************/
 
