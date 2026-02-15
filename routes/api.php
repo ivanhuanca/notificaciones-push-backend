@@ -15,6 +15,12 @@ Route::post('/push/send/{user_id}', [App\Http\Controllers\PushNotificationContro
 
 /*********************** RUTAS PARA LAS SUSCRIPCIONES ***********************/
 
+
+// lista de usuarios
+Route::get('/users', function () {
+    return User::all();
+});
+
 // Endpoint de login para API usando Sanctum
 Route::post('/login', function (Illuminate\Http\Request $request) {
     $request->validate([
